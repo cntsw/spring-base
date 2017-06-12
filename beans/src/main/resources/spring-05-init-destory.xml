@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans-3.0.xsd"
+       >
+       <!-- 或者在beans属性里面提前指定默认的方法名称
+       default-init-method=""
+       default-destroy-method=""
+       >
+       -->
+
+    <bean id="auditorium" class="com.iocya.springbase.beans.bean.Auditorium"
+          init-method="turnOnLights" destroy-method="turnOffLights"/>
+</beans>

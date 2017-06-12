@@ -35,4 +35,35 @@ public class XmlTypeTest {
         Stage stage = ctx.getBean("theStage", Stage.class);
         System.out.println(stage);
     }
+
+    @Test
+    public void test4() {
+        ApplicationContext ctx = new ClassPathXmlApplicationContext(
+                "spring-04-scoping.xml"
+        );
+        System.out.println(ctx.getBean("singletonJuggler"));
+        System.out.println(ctx.getBean("singletonJuggler"));
+        System.out.println(ctx.getBean("prototypeJuggler"));
+        System.out.println(ctx.getBean("prototypeJuggler"));
+    }
+
+    @Test
+    public void test5() {
+        ApplicationContext ctx = new ClassPathXmlApplicationContext(
+                "spring-05-init-destory.xml"
+        );
+    }
+
+                         @Test
+    public void test10() {
+        ApplicationContext ctx = new ClassPathXmlApplicationContext(
+                "spring-10-di.xml"
+        );
+        ctx.getBean("kenny", Performer.class).perform();
+        ctx.getBean("kenny2", Performer.class).perform();
+        System.out.println("----------------");
+        ctx.getBean("oneManBand", Performer.class).perform();
+
+    }
+
 }
