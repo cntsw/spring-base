@@ -4,14 +4,10 @@ import com.iocya.springbase.beans.bean.Performer;
 import com.iocya.springbase.beans.bean.Stage;
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.AbstractApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-/**
- * Created by Euler on 2017/6/11.
- */
 public class XmlTypeTest {
-
-
     @Test
     public void test1() {
         ApplicationContext ctx = new ClassPathXmlApplicationContext(
@@ -49,12 +45,14 @@ public class XmlTypeTest {
 
     @Test
     public void test5() {
-        ApplicationContext ctx = new ClassPathXmlApplicationContext(
+        AbstractApplicationContext ctx = new ClassPathXmlApplicationContext(
                 "spring-05-init-destory.xml"
         );
+
+        ctx.close();
     }
 
-                         @Test
+    @Test
     public void test10() {
         ApplicationContext ctx = new ClassPathXmlApplicationContext(
                 "spring-10-di.xml"
@@ -63,6 +61,17 @@ public class XmlTypeTest {
         ctx.getBean("kenny2", Performer.class).perform();
         System.out.println("----------------");
         ctx.getBean("oneManBand", Performer.class).perform();
+
+    }
+
+
+    @Test
+    public void test11() {
+        ApplicationContext ctx = new ClassPathXmlApplicationContext(
+                "spring-11-SpEL.xml"
+        );
+        ctx.getBean("carl", Performer.class).perform();
+        ctx.getBean("carl2", Performer.class).perform();
 
     }
 

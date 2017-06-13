@@ -1,13 +1,9 @@
 package com.iocya.springbase.beans.bean;
 
-import java.util.Collection;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-/**
- * Created by Euler on 2017/6/13.
- */
 public class OneManBand implements Performer {
     private List<Instrument> instrumentList;
     private Map<String, Instrument> instrumentMap;
