@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="saxophone"
+          class="com.iocya.springbase.beans.bean.Saxophone"/>
+
+    <bean id="piano"
+          class="com.iocya.springbase.beans.bean.Piano"/>
+
+    <bean id="kenny" class="com.iocya.springbase.beans.bean.Instrumentalist">
+        <property name="song" value="Jingle Bells"/>
+        <property name="instrument" ref="saxophone"/>
+    </bean>
+
+    <bean id="kenny2" class="com.iocya.springbase.beans.bean.Instrumentalist">
+        <property name="song" value="Jingle Bells"/>
+        <property name="instrument">
+            <!--内部bean, 不推荐 -->
+            <bean class="com.iocya.springbase.beans.bean.Piano"/>
+        </property>
+    </bean>
+
+    <bean id="oneManBand" class="com.iocya.springbase.beans.bean.OneManBand">
+        <property name="instrumentList">
+            <list>
+                <ref bean="saxophone"/>
+                <ref bean="piano"/>
+            </list>
+        </property>
+
+        <property name="instrumentMap">
+            <map>
+                <entry key="saxophone" value-ref="saxophone"/>
+                <entry key="piano" value-ref="piano"/>
+            </map>
+        </property>
+
+        <property name="intrumentNameSet">
+            <set>
+                <value>SAXOPHONE</value>
+                <null/>
+            </set>
+        </property>
+    </bean>
+</beans>
