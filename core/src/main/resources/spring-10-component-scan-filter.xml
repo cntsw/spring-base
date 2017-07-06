@@ -11,6 +11,9 @@
 
     <context:component-scan base-package="com.iocya">
         <context:include-filter type="regex" expression=".*controller.*Controller"/>
+        <!--Any type under the specified base packages which matches a given 
+        filter will be included, even if it does not match the default filters 
+        (i.e. is not annotated with @Component).-->
     </context:component-scan>
 
 </beans>

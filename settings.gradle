@@ -1,4 +1,4 @@
 rootProject.name = 'spring-base'
 
 include 'core'
-//include 'core-use-xml'
+include 'core-use-xml'
